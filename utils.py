@@ -4,8 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def get_quantiles(feature, target, var_names, bins=10):
-    # Function to help analyze the relationship between target and feature
-    # Divides the feature variable in  #bins and calculates the average of the target value for each bin
+
     df = pd.DataFrame({'feature': feature, 'target': target})
     df['quantile'] = np.floor(bins * df['feature'].rank(method='first', ascending=True) / df.shape[0])
 
